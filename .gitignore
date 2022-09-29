@@ -1,0 +1,10 @@
+data/
+*.xlsm
+*.xls
+*.csv
+.Rhistory
+/tutorial-env
+.venv
+*.mat
+*.iCloud
+*.DS_Store
