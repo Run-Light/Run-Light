@@ -6,7 +6,8 @@ Created on Sun Oct  9 11:46:00 2022
 @author: rmarrion
 """
 import pandas as pd
-
+import numpy as np
+from sklearn.metrics import mean_squared_error
 def exceptOneValidation(model,X,y,period=5000):
     """
     
@@ -24,10 +25,13 @@ def exceptOneValidation(model,X,y,period=5000):
 
     Returns
     -------
-    Score : list
-            Score of each model trained
+    score : list of Tuple
+            Score of each model trained and the mean squared error associated
+    predict : np.array
+              prediction of each model train
     """
     score=[]
+    predict=[]
     for i in range(0,len(X),period):
         if i==0:
             X_train=X.iloc[period:,:]
@@ -45,8 +49,10 @@ def exceptOneValidation(model,X,y,period=5000):
             X_test=X.iloc[i:i+period,:]
             y_test=y.iloc[i:i+period]
         model.fit(X_train,y_train)
-        score.append(model.score(X_test,y_test))
-    return score
+        y_pred=model.predict(X_test)
+        predict=np.concatenate([predict,y_pred])
+        score.append((model.score(X_test,y_test),mean_squared_error(y_test,y_pred)))
+    return score,predict
 
 
    
