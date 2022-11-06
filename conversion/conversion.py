@@ -8,7 +8,7 @@ Created on Sun Oct  9 11:46:00 2022
 
 import pandas as pd
 
-def conversion_tot(data,fil=10):
+def conversion_tot(data,fil):
     stanceforce = data['StanceForce']  # variable in mat file
     stancetibia = data['StanceTibia']
     stancelumbar = data['StanceLumbar']
