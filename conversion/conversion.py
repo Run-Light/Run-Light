@@ -9,6 +9,20 @@ Created on Sun Oct  9 11:46:00 2022
 import pandas as pd
 
 def conversion_tot(data,fil):
+    '''
+    Parameters
+    ----------
+    data : matlab file
+        DESCRIPTION : the matlab file 
+    fil : integer
+        DESCRIPTION : filtrage we choose
+
+    Returns
+    -------
+    df : data frame
+        DESCRIPTION : the data in a DF depending on the filtrage
+
+    '''
     stanceforce = data['StanceForce']  # variable in mat file
     stancetibia = data['StanceTibia']
     stancelumbar = data['StanceLumbar']
@@ -20,6 +34,22 @@ def conversion_tot(data,fil):
     return df
 
 def tab_Lumbar(stancelumbar,fil=10):
+    '''
+    
+
+    Parameters
+    ----------
+    stancelumbar : data frame
+        DESCRIPTION : 
+    fil : integer, optional
+        DESCRIPTION. The default is 10.
+
+    Returns
+    -------
+    df_Lumbar : data frame
+        DESCRIPTION.
+
+    '''
     df_Lumbar=pd.DataFrame(columns=['x_lumbar','y_lumbar','z_lumbar'])
     for i in range(10):
         for j in range(len(stancelumbar[0][fil][0][0][0])):
@@ -32,6 +62,22 @@ def tab_Lumbar(stancelumbar,fil=10):
     return df_Lumbar
 
 def tab_Tibia(stancetibia,fil=10):
+    '''
+    
+
+    Parameters
+    ----------
+    stancetibia : data frame
+        DESCRIPTION.
+    fil : integer, optional
+        DESCRIPTION. The default is 10.
+
+    Returns
+    -------
+    df_Tibia : data frame
+        DESCRIPTION.
+
+    '''
     df_Tibia=pd.DataFrame(columns=['x_force','y_force','z_force'])
     for i in range(10):
         for j in range(len(stancetibia[0][fil][0][0][0])):
@@ -42,6 +88,22 @@ def tab_Tibia(stancetibia,fil=10):
     return df_Tibia
 
 def tab_Force(stanceforce,fil=10):
+    '''
+    
+
+    Parameters
+    ----------
+    stanceforce : data frame
+        DESCRIPTION.
+    fil : integer, optional
+        DESCRIPTION. The default is 10.
+
+    Returns
+    -------
+    df_Force : data frame
+        DESCRIPTION.
+
+    '''
     df_Force=pd.DataFrame(columns=['x_force','y_force','z_force'])
     for i in range(10):
         for j in range(len(stanceforce[0][fil][0][0][0])):
