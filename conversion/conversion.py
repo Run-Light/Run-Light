@@ -62,7 +62,7 @@ class conversion_matlab_csv:
 
         '''
         df_Lumbar=pd.DataFrame(columns=['x_lumbar','y_lumbar','z_lumbar'])
-        for i in range(10):
+        for i in range(len(stancelumbar[0][fil][0])):
             for j in range(len(stancelumbar[0][fil][0][0][0])):
                 tampon=pd.DataFrame(stancelumbar[0][fil][0][i][0][j],columns=['x_lumbar','y_lumbar','z_lumbar'])
                 tampon['nb_seance']=i
@@ -92,7 +92,7 @@ class conversion_matlab_csv:
 
         '''
         df_Tibia=pd.DataFrame(columns=['x_force','y_force','z_force'])
-        for i in range(10):
+        for i in range(len(stancetibia[0][fil][0])):
             for j in range(len(stancetibia[0][fil][0][0][0])):
                 tampon=pd.DataFrame(stancetibia[0][fil][0][i][0][j],columns=['x_tibia','y_tibia','z_tibia'])
                 df_Tibia=pd.concat([df_Tibia,tampon],axis=0)
@@ -120,7 +120,7 @@ class conversion_matlab_csv:
 
         '''
         df_Force=pd.DataFrame(columns=['x_force','y_force','z_force'])
-        for i in range(10):
+        for i in range(len(stanceforce[0][fil][0])):
             for j in range(len(stanceforce[0][fil][0][0][0])):
                 tampon=pd.DataFrame(stanceforce[0][fil][0][i][0][j],columns=['x_force','y_force','z_force'])
                 df_Force=pd.concat([df_Force,tampon],axis=0)
