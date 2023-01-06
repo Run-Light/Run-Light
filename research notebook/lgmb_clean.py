@@ -104,4 +104,5 @@ print('Raw',r2_score(df['z_force'],df['z_pred']),'Smooth:',r2_score(df['z_force'
 
 #Exportation of the predictions into a csv file :
 
-np.savetxt("Exported_data\data_predict.csv", predict_lgbmr, delimiter=",")
+predict_df = pd.DataFrame(predict_lgbmr)
+predict_df.to_csv("Exported_data\data_predict.csv")
